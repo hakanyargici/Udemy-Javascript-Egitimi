@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <title>Liseye Eleman Silme</title>
+    <style>
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .task{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .task label.checked{
+            text-decoration: line-through;
+        }
+
+        .controls{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filters span{
+            border: 1px solid;
+            border-radius: 5px;
+            padding: 6px;
+            background-color: white;
+            margin: 0px 2px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .filters span.active{
+            color: #3c87ff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 text-center">
+                    <div class="card-header">
+                        ToDo App
+                    </div>
+    
+                    <div class="card-body">
+                        <form>
+                            <div class="input-group">
+                                <input type="text" id="txtTaskName" class="form-control">
+                                <button type="button" class="btn btn-primary" id="btnAddNewTask">
+                                    Ekle
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="card mt-3">
+                    <div class="card-header controls">
+                        <div class="filters">
+                            <span class="active" id="all">Hepsi</span>
+                            <span class="pending">Yapılacaklar</span>
+                            <span class="completed">Tamamlanan</span>
+                        </div>
+                        <button id="btnClear" class="btn btn-danger btn-sm float-right">
+                            Temizle
+                        </button>
+                    </div>
+                    <ul id="task-list" class="list-group list-group-flush">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" ></script>
+<script src="script.js"></script>
+
+</body>
+</html>

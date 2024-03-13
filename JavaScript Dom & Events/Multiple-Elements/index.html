@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Element</title>
+</head>
+<body>
+    
+    <div class="card-header">
+        <h3 class="card-title h1" id="title">ToDo App</h3>
+    </div>
+
+    <ul id="task-list">
+        <li class="task">Görev 1</li>
+        <li class="task">Görev 2</li>
+        <li class="task">Görev 3</li>
+        <li class="task">Görev 4</li>
+        <li class="task">Görev 5</li>
+        <li class="task">Görev 6</li>
+    </ul>
+
+    <script>
+        let sonuc;
+
+        sonuc = document.getElementsByClassName("task"); // Class değerine sahip tüm elemanlar
+        sonuc = document.getElementsByClassName("task")[4]; // Class değerine sahip index
+
+        sonuc = document.getElementsByClassName("task"); // Class değerine sahip tüm elemanlar
+
+
+        for(let mami of sonuc){
+            mami.style.color="black";
+            mami.style.fontSize="20px";
+            mami.style.fontFamily="sans-serif";
+            console.log(mami);
+        }
+
+        console.log(sonuc);
+    </script>
+
+</body>
+</html>
