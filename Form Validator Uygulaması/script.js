@@ -5,7 +5,7 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const repassword = document.getElementById('repassword');
 
-// Hatalı bilgi kontrolü
+// Hatalı girdi kontrolü
 function error(input, message){
     input.className = 'form-control is-invalid';
     const getDiv = input.nextElementSibling;
@@ -13,47 +13,37 @@ function error(input, message){
     getDiv.className = 'invalid-feedback';
 }
 
-// Doğru bilgi kontrolü
+// Doğru girdi kontrolü
 function success(input){
     input.className = 'form-control is-valid';
 }
 
-function validateEmail(email){
+// Mail doğruluğu kontrolü
+function validateEmail(input){
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    return re.test(String(email).toLowerCase());
+    
+    if(re.test(input.value)){
+        success(input);
+    } else{
+        error(input, 'Hatalı Bir Mail Adresi Tanımlandı.')
+    }
+}
+
+function checkRequired(validate) {
+    validate.forEach(function(input) {
+        if (input.value === ''){
+            error(input, `${input.id} Gereklidir.`) 
+        } else{
+            success(input);
+        }
+        console.log(input.value);
+    });
 }
 
 // input içerik kontrolü ve ux bildirim
 form.addEventListener('submit', function(e){
     e.preventDefault();
 
-    if(userName.value === ''){
-        error(userName, 'Kullanıcı Adı Gerekli');
-    } else{
-        success(userName);
-    }
-
-    if(email.value === ''){
-        error(email, 'Email Adresi Gerekli');
-    } else if(!validateEmail(email.value)){
-        error(email, 'Hatalı mail adresi');
-    }
-    else{
-        success(email);
-    }
-
-    if(password.value === ''){
-       error(password, 'Şifre Gerekli');
-    } else{
-        success(password);
-    }
-
-    if(repassword.value === ''){
-        error(repassword, 'Şifre Gerekli');
-    } else if(repassword.value != password.value){
-        error(repassword);
-        console.log("Şifreler Eşleşmiyor.");
-    } else{
-        success(repassword);
-    }
+    checkRequired([userName, email, password, repassword]);
+    validateEmail(email)
 });
