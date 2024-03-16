@@ -1,3 +1,3 @@
-## Javascript Kurs İçeriği
+# Javascript Kurs'u
 
-# Sadık Turhan'ın Udemy üzerinden erişebildiğiniz eğitim kursu içeriği.
+## Sadık Turhan'ın Udemy üzerinden erişebildiğiniz eğitim kursu içeriği.
